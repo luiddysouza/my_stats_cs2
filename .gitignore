@@ -27,3 +27,16 @@ Thumbs.db
 .aiox-core/local/
 .claude/settings.local.json
 .aiox/install-log.txt
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.packages
+*.iml
+build/
+android/
+ios/
+linux/
+macos/
+windows/
+web/

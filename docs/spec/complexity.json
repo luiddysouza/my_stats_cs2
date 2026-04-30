@@ -1,0 +1,47 @@
+{
+    "projectId": "my_stats_cs2",
+    "assessedAt": "2026-04-30",
+    "assessedBy": "@architect",
+    "requirementsRef": "docs/spec/requirements.json",
+    "dimensions": {
+        "scope": {
+            "score": 4,
+            "rationale": "~15 arquivos novos a criar: 2 features (search, matches) × 3 camadas (data/domain/presentation) cada + core/router/theme/mocks. Cross-cutting mas bem delimitado.",
+            "files_estimated": 15
+        },
+        "integration": {
+            "score": 1,
+            "rationale": "Zero integrações externas no MVP. Dados mockados localmente. API futura será plugada na camada de datasource sem impacto nas demais camadas."
+        },
+        "infrastructure": {
+            "score": 2,
+            "rationale": "Novo projeto Flutter do zero. Requer setup de pubspec.yaml com dependências (Riverpod, go_router, Freezed, Dio). Sem banco de dados, sem backend, sem deploy complexo."
+        },
+        "knowledge": {
+            "score": 3,
+            "rationale": "Flutter + Riverpod + Clean Architecture + Freezed são novas para este projeto, mas todas têm documentação clara e o tech preset já define os padrões a seguir."
+        },
+        "risk": {
+            "score": 1,
+            "rationale": "Greenfield puro — sem codebase existente a quebrar, sem usuários reais, sem dependências externas ativas. Risco mínimo."
+        }
+    },
+    "totalScore": 11,
+    "classification": "STANDARD",
+    "pipeline_phases": [
+        "gather",
+        "assess",
+        "spec",
+        "critique",
+        "plan"
+    ],
+    "research_skipped": true,
+    "research_skip_reason": "Tech preset Flutter já criado com padrões definidos. Stack bem documentada. Pesquisa adicional não agrega valor no MVP.",
+    "recommendations": [
+        "Dividir o trabalho em 3 stories: (1) Setup + estrutura base, (2) Busca + lista de partidas, (3) Detalhe da partida",
+        "Implementar mock data em datasource isolado para facilitar troca futura por API real",
+        "Usar repository pattern desde o início para não ter débito técnico ao integrar a API"
+    ],
+    "flags": [],
+    "next_phase": "spec-write-spec"
+}

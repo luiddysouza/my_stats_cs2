@@ -1,0 +1,57 @@
+{
+    "projectId": "my_stats_cs2",
+    "critiquedAt": "2026-04-30",
+    "critiquedBy": "@qa",
+    "specRef": "docs/spec/prd.md",
+    "scores": {
+        "accuracy": {
+            "score": 5,
+            "weight": 0.25,
+            "weighted": 1.25
+        },
+        "completeness": {
+            "score": 3,
+            "weight": 0.25,
+            "weighted": 0.75
+        },
+        "consistency": {
+            "score": 5,
+            "weight": 0.20,
+            "weighted": 1.00
+        },
+        "feasibility": {
+            "score": 5,
+            "weight": 0.15,
+            "weighted": 0.75
+        },
+        "alignment": {
+            "score": 4,
+            "weight": 0.15,
+            "weighted": 0.60
+        }
+    },
+    "averageScore": 4.4,
+    "verdict": "APPROVED",
+    "gaps": [
+        {
+            "id": "G-01",
+            "severity": "LOW",
+            "description": "Seção de Riscos ausente no PRD",
+            "recommendation": "Cobrir na Story 1.1 como tarefa de risk assessment"
+        },
+        {
+            "id": "G-02",
+            "severity": "LOW",
+            "description": "Lista de arquivos a criar não explicitada no PRD",
+            "recommendation": "@sm deve listar na story usando o template padrão"
+        },
+        {
+            "id": "G-03",
+            "severity": "MEDIUM",
+            "description": "OQ-02 aberto: formato do rating não definido",
+            "recommendation": "Usar rating: double (0.0-2.0, padrão HLTV 2.0) nos mocks da Story 1.1"
+        }
+    ],
+    "next_phase": "plan",
+    "approved_for_stories": true
+}

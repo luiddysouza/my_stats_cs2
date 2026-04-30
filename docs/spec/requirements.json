@@ -1,0 +1,204 @@
+{
+    "projectId": "my_stats_cs2",
+    "gatheredAt": "2026-04-30",
+    "source": "user",
+    "gatheredBy": "@pm",
+    "elicitationVersion": "2.0",
+    "platform": "mobile",
+    "techPreset": "flutter",
+    "functional": [
+        {
+            "id": "FR-01",
+            "description": "O usuário pode pesquisar um jogador de CS2 informando Steam ID, link do perfil Steam ou URL personalizada Steam",
+            "priority": "P0",
+            "rationale": "Ponto de entrada principal do app — sem busca não há funcionalidade",
+            "acceptance": [
+                "AC-01",
+                "AC-02",
+                "AC-03"
+            ]
+        },
+        {
+            "id": "FR-02",
+            "description": "O app exibe as últimas 10 partidas do jogador pesquisado em uma lista",
+            "priority": "P0",
+            "rationale": "Resultado central da pesquisa — o usuário veio para ver partidas recentes",
+            "acceptance": [
+                "AC-04",
+                "AC-05"
+            ]
+        },
+        {
+            "id": "FR-03",
+            "description": "Cada partida na lista exibe estatísticas resumidas: kills, assists, deaths e rating do jogador pesquisado",
+            "priority": "P0",
+            "rationale": "Informação mínima necessária para avaliar performance sem abrir o detalhe",
+            "acceptance": [
+                "AC-06"
+            ]
+        },
+        {
+            "id": "FR-04",
+            "description": "O usuário pode abrir o detalhe de uma partida e ver as estatísticas completas de todos os jogadores (kills, assists, deaths, rating e afins)",
+            "priority": "P0",
+            "rationale": "Contexto da partida completo — permite comparar performance entre jogadores",
+            "acceptance": [
+                "AC-07",
+                "AC-08"
+            ]
+        },
+        {
+            "id": "FR-05",
+            "description": "Os dados são mockados localmente no app enquanto não há API real disponível",
+            "priority": "P0",
+            "rationale": "Permite desenvolver e validar o app completo sem dependência de API externa",
+            "acceptance": [
+                "AC-09"
+            ]
+        }
+    ],
+    "nonFunctional": [
+        {
+            "id": "NFR-01",
+            "description": "A busca deve retornar resultado (mockado) em menos de 500ms",
+            "category": "performance"
+        },
+        {
+            "id": "NFR-02",
+            "description": "O app deve funcionar em Android e iOS",
+            "category": "compatibility"
+        },
+        {
+            "id": "NFR-03",
+            "description": "A UI deve ser responsiva para diferentes tamanhos de tela mobile",
+            "category": "usability"
+        }
+    ],
+    "constraints": [
+        {
+            "id": "CON-01",
+            "description": "Sem backend próprio — dados vêm de API externa (futura) ou mock local",
+            "type": "technical"
+        },
+        {
+            "id": "CON-02",
+            "description": "Sem autenticação de usuário no MVP",
+            "type": "scope"
+        },
+        {
+            "id": "CON-03",
+            "description": "MVP apenas — sem features extras além das listadas",
+            "type": "scope"
+        },
+        {
+            "id": "CON-04",
+            "description": "Plataforma mobile-only (Flutter)",
+            "type": "technical"
+        }
+    ],
+    "acceptance": [
+        {
+            "id": "AC-01",
+            "description": "Dado um Steam ID válido (ex: 76561198XXXXXXXXX), quando buscar, então o app carrega o perfil"
+        },
+        {
+            "id": "AC-02",
+            "description": "Dado um link de perfil Steam (steamcommunity.com/id/xxx ou /profiles/xxx), quando buscar, então o app carrega o perfil"
+        },
+        {
+            "id": "AC-03",
+            "description": "Dado uma entrada inválida, quando buscar, então o app exibe mensagem de erro adequada"
+        },
+        {
+            "id": "AC-04",
+            "description": "Após busca bem-sucedida, o app exibe lista com as últimas 10 partidas"
+        },
+        {
+            "id": "AC-05",
+            "description": "Se nenhuma partida for encontrada, o app exibe estado vazio ('Nenhuma partida encontrada')"
+        },
+        {
+            "id": "AC-06",
+            "description": "Cada item da lista exibe: kills, assists, deaths, rating e resultado (vitória/derrota) da partida"
+        },
+        {
+            "id": "AC-07",
+            "description": "Ao tocar em uma partida, o app navega para a tela de detalhe"
+        },
+        {
+            "id": "AC-08",
+            "description": "A tela de detalhe exibe estatísticas de todos os jogadores da partida organizados por time"
+        },
+        {
+            "id": "AC-09",
+            "description": "Todos os dados mockados são estruturalmente idênticos ao formato esperado de uma API real"
+        }
+    ],
+    "domainEntities": [
+        {
+            "name": "Player",
+            "attributes": [
+                "steamId",
+                "profileUrl",
+                "customUrl",
+                "displayName",
+                "avatarUrl"
+            ]
+        },
+        {
+            "name": "Match",
+            "attributes": [
+                "matchId",
+                "map",
+                "date",
+                "durationMinutes",
+                "result (win/loss/draw)"
+            ]
+        },
+        {
+            "name": "PlayerMatchStats",
+            "attributes": [
+                "kills",
+                "assists",
+                "deaths",
+                "rating",
+                "headshots",
+                "mvpCount",
+                "score"
+            ]
+        }
+    ],
+    "userFlows": [
+        {
+            "id": "FLOW-01",
+            "name": "Happy Path",
+            "steps": [
+                "Abrir app → ver Home com barra de busca",
+                "Digitar Steam ID ou URL → tocar em Buscar",
+                "Ver lista das últimas 10 partidas",
+                "Tocar em uma partida → ver detalhe com stats de todos os jogadores"
+            ]
+        },
+        {
+            "id": "FLOW-02",
+            "name": "Error Path",
+            "steps": [
+                "Digitar entrada inválida → tocar em Buscar",
+                "Ver mensagem de erro ('Jogador não encontrado' ou 'Entrada inválida')"
+            ]
+        }
+    ],
+    "assumptions": [
+        "A API real a ser integrada no futuro seguirá o mesmo formato de dados dos mocks",
+        "O app não precisa salvar histórico de buscas no MVP",
+        "Não há necessidade de i18n no MVP (português por padrão)"
+    ],
+    "outOfScope": [
+        "Login com Steam",
+        "Comparação entre jogadores",
+        "Notificações push",
+        "Histórico de buscas salvo",
+        "Rankings ou leaderboards",
+        "Backend próprio"
+    ]
+}
