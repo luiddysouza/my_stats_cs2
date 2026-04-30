@@ -6,6 +6,7 @@ part 'player_match_stats_entity.freezed.dart';
 @freezed
 class PlayerMatchStatsEntity with _$PlayerMatchStatsEntity {
   const factory PlayerMatchStatsEntity({
+    required String matchId,
     required PlayerEntity player,
     required int kills,
     required int assists,

@@ -10,8 +10,11 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/matches',
       builder: (context, state) {
-        final steamId = state.extra as String?;
-        return MatchListScreen(steamId: steamId ?? '');
+        final extra = state.extra as Map<String, String>? ?? {};
+        return MatchListScreen(
+          steamId: extra['steamId'] ?? '',
+          displayName: extra['displayName'],
+        );
       },
     ),
     GoRoute(

@@ -167,6 +167,7 @@ class MockData {
 
   static final List<PlayerMatchStatsEntity> matchStats = [
     const PlayerMatchStatsEntity(
+      matchId: 'match-001',
       player: searchedPlayer,
       kills: 24,
       assists: 5,
@@ -178,6 +179,7 @@ class MockData {
       team: 'CT',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-002',
       player: searchedPlayer,
       kills: 12,
       assists: 3,
@@ -189,6 +191,7 @@ class MockData {
       team: 'T',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-003',
       player: searchedPlayer,
       kills: 20,
       assists: 7,
@@ -200,6 +203,7 @@ class MockData {
       team: 'CT',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-004',
       player: searchedPlayer,
       kills: 11,
       assists: 4,
@@ -211,6 +215,7 @@ class MockData {
       team: 'T',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-005',
       player: searchedPlayer,
       kills: 22,
       assists: 6,
@@ -222,6 +227,7 @@ class MockData {
       team: 'CT',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-006',
       player: searchedPlayer,
       kills: 17,
       assists: 8,
@@ -233,6 +239,7 @@ class MockData {
       team: 'T',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-007',
       player: searchedPlayer,
       kills: 25,
       assists: 4,
@@ -244,6 +251,7 @@ class MockData {
       team: 'CT',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-008',
       player: searchedPlayer,
       kills: 10,
       assists: 2,
@@ -255,6 +263,7 @@ class MockData {
       team: 'T',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-009',
       player: searchedPlayer,
       kills: 19,
       assists: 5,
@@ -266,6 +275,7 @@ class MockData {
       team: 'CT',
     ),
     const PlayerMatchStatsEntity(
+      matchId: 'match-010',
       player: searchedPlayer,
       kills: 14,
       assists: 3,

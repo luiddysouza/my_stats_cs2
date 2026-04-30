@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PlayerMatchStatsEntity {
+  String get matchId => throw _privateConstructorUsedError;
   PlayerEntity get player => throw _privateConstructorUsedError;
   int get kills => throw _privateConstructorUsedError;
   int get assists => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $PlayerMatchStatsEntityCopyWith<$Res> {
   ) = _$PlayerMatchStatsEntityCopyWithImpl<$Res, PlayerMatchStatsEntity>;
   @useResult
   $Res call({
+    String matchId,
     PlayerEntity player,
     int kills,
     int assists,
@@ -74,6 +76,7 @@ class _$PlayerMatchStatsEntityCopyWithImpl<
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? matchId = null,
     Object? player = null,
     Object? kills = null,
     Object? assists = null,
@@ -86,6 +89,10 @@ class _$PlayerMatchStatsEntityCopyWithImpl<
   }) {
     return _then(
       _value.copyWith(
+            matchId: null == matchId
+                ? _value.matchId
+                : matchId // ignore: cast_nullable_to_non_nullable
+                      as String,
             player: null == player
                 ? _value.player
                 : player // ignore: cast_nullable_to_non_nullable
@@ -148,6 +155,7 @@ abstract class _$$PlayerMatchStatsEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    String matchId,
     PlayerEntity player,
     int kills,
     int assists,
@@ -178,6 +186,7 @@ class __$$PlayerMatchStatsEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? matchId = null,
     Object? player = null,
     Object? kills = null,
     Object? assists = null,
@@ -190,6 +199,10 @@ class __$$PlayerMatchStatsEntityImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$PlayerMatchStatsEntityImpl(
+        matchId: null == matchId
+            ? _value.matchId
+            : matchId // ignore: cast_nullable_to_non_nullable
+                  as String,
         player: null == player
             ? _value.player
             : player // ignore: cast_nullable_to_non_nullable
@@ -235,6 +248,7 @@ class __$$PlayerMatchStatsEntityImplCopyWithImpl<$Res>
 
 class _$PlayerMatchStatsEntityImpl implements _PlayerMatchStatsEntity {
   const _$PlayerMatchStatsEntityImpl({
+    required this.matchId,
     required this.player,
     required this.kills,
     required this.assists,
@@ -246,6 +260,8 @@ class _$PlayerMatchStatsEntityImpl implements _PlayerMatchStatsEntity {
     required this.team,
   });
 
+  @override
+  final String matchId;
   @override
   final PlayerEntity player;
   @override
@@ -267,7 +283,7 @@ class _$PlayerMatchStatsEntityImpl implements _PlayerMatchStatsEntity {
 
   @override
   String toString() {
-    return 'PlayerMatchStatsEntity(player: $player, kills: $kills, assists: $assists, deaths: $deaths, rating: $rating, headshots: $headshots, mvpCount: $mvpCount, score: $score, team: $team)';
+    return 'PlayerMatchStatsEntity(matchId: $matchId, player: $player, kills: $kills, assists: $assists, deaths: $deaths, rating: $rating, headshots: $headshots, mvpCount: $mvpCount, score: $score, team: $team)';
   }
 
   @override
@@ -275,6 +291,7 @@ class _$PlayerMatchStatsEntityImpl implements _PlayerMatchStatsEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlayerMatchStatsEntityImpl &&
+            (identical(other.matchId, matchId) || other.matchId == matchId) &&
             (identical(other.player, player) || other.player == player) &&
             (identical(other.kills, kills) || other.kills == kills) &&
             (identical(other.assists, assists) || other.assists == assists) &&
@@ -291,6 +308,7 @@ class _$PlayerMatchStatsEntityImpl implements _PlayerMatchStatsEntity {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    matchId,
     player,
     kills,
     assists,
@@ -317,6 +335,7 @@ class _$PlayerMatchStatsEntityImpl implements _PlayerMatchStatsEntity {
 
 abstract class _PlayerMatchStatsEntity implements PlayerMatchStatsEntity {
   const factory _PlayerMatchStatsEntity({
+    required final String matchId,
     required final PlayerEntity player,
     required final int kills,
     required final int assists,
@@ -328,6 +347,8 @@ abstract class _PlayerMatchStatsEntity implements PlayerMatchStatsEntity {
     required final String team,
   }) = _$PlayerMatchStatsEntityImpl;
 
+  @override
+  String get matchId;
   @override
   PlayerEntity get player;
   @override
