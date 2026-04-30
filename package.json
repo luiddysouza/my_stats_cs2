@@ -1,0 +1,21 @@
+{
+    "name": "my_stats_cs2",
+    "version": "0.1.0",
+    "description": "my_stats_cs2 - AIOX-managed project",
+    "private": true,
+    "scripts": {
+        "sync:ide": "node .aiox-core/infrastructure/scripts/ide-sync/index.js sync",
+        "sync:ide:check": "node .aiox-core/infrastructure/scripts/ide-sync/index.js validate --strict",
+        "sync:ide:validate": "node .aiox-core/infrastructure/scripts/ide-sync/index.js validate",
+        "sync:ide:cursor": "node .aiox-core/infrastructure/scripts/ide-sync/index.js sync --ide cursor",
+        "sync:ide:codex": "node .aiox-core/infrastructure/scripts/ide-sync/index.js sync --ide codex",
+        "sync:ide:gemini": "node .aiox-core/infrastructure/scripts/ide-sync/index.js sync --ide gemini",
+        "sync:ide:github-copilot": "node .aiox-core/infrastructure/scripts/ide-sync/index.js sync --ide github-copilot",
+        "sync:ide:antigravity": "node .aiox-core/infrastructure/scripts/ide-sync/index.js sync --ide antigravity",
+        "sync:ide:claude": "node .aiox-core/infrastructure/scripts/ide-sync/index.js sync --ide claude-code",
+        "sync:skills:codex": "node .aiox-core/infrastructure/scripts/codex-skills-sync/index.js",
+        "sync:skills:codex:global": "node .aiox-core/infrastructure/scripts/codex-skills-sync/index.js --global",
+        "validate:structure": "node .aiox-core/infrastructure/scripts/aiox-validator.js",
+        "validate:agents": "node .aiox-core/infrastructure/scripts/validate-agents.js"
+    }
+}
